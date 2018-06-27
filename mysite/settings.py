@@ -120,6 +120,9 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+# STATICFIELS_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
@@ -136,3 +139,5 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+
