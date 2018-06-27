@@ -5,27 +5,21 @@
 </head>
 
 <body>
-    <div>
-        <h1>
-            <a href="">Django Blog</a>
-        </h1>
-    </div>
+<div>
+    <h1>
+        <a href="/">Django Blog</a>
+    </h1>
+</div>
 
-    <div>
-        <p>published: 28.06.2018</p>
-        <h2>
-            <a href="">My first post</a>
-        </h2>
-        <p>Now, I am managing to build my site.</p>
-    </div>
-
-    <div>
-        <p>published: 28.06.2018</p>
-        <h2>
-            <a href="">My second post</a>
-        </h2>
-        <p>This is a sample post.</p>
-    </div>
+{% for post in posts %}
+<div>
+    <p>published: {{ post.published_date }}</p>
+    <h1>
+        <a href="">{{ post.title }}</a>
+    </h1>
+    <p>{{ post.text|linebreaks }}</p>
+</div>
+{% endfor %}
 </body>
 
 </html>
