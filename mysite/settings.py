@@ -119,10 +119,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# STATICFIELS_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
+STATICFIELS_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
