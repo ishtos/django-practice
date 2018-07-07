@@ -13,7 +13,5 @@ urlpatterns = [
     path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
     path('mypage/', views.MyPageView.as_view(), name='mypage'),
-    path('create/', views.CreateUserView.as_view(), name='create_user_view'),
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
+    path('create/', views.CreateUserView.as_view(), name='create'),
 ]

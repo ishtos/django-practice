@@ -100,25 +100,25 @@ def comment_remove(request, pk):
 
 
 class MyPageView(LoginRequiredMixin, generic.TemplateView):
-    template_name = "blog/info.html"
+    template_name = "blog/mypage.html"
 
 
 class CreateUserView(generic.CreateView):
-    template_name = 'blog/create_user_view.html'
+    template_name = 'registration/create.html'
     form_class = RegisterForm
-    success_url = reverse_lazy('blog:index')
+    success_url = reverse_lazy('blog:post_list')
 
 
-def login(request):
-    context = {
-        'template_name': 'blog/login.html',
-        'authentication_form': LoginForm
-    }
-    return views.login(request, **context)
+# def login(request):
+#     context = {
+#         'template_name': 'registration/login.html',
+#         'authentication_form': LoginForm
+#     }
+#     return views.login(request, **context)
 
 
-def logout(request):
-    context = {
-        'template_name': 'blog/post_list.html',
-    }
-    return views.logout(request, **context)
+# def logout(request):
+#     context = {
+#         'template_name': 'blog/post_list.html',
+#     }
+#     return views.logout(request, **context)

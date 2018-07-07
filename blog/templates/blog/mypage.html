@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %} {% block content %}
+<div class="container">
+    <div class="center">
+        <h1>ユーザ情報</h1>
+        <!-- <p class="lead">ログイン中のユーザデータを表示します</p> -->
+    </div>
+
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>属性</th>
+                <!-- <th>templateでの呼び出し方</th> -->
+                <th>ログインユーザのデータ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>username</td>
+                <!-- <td>{% verbatim %} {{ user.username }} {% endverbatim %} </td> -->
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <!-- <td>{% verbatim %} {{ user.email }} {% endverbatim %} </td> -->
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td>admin</td>
+                <!-- <td>{% verbatim %} {{ user.is_staff }} {% endverbatim %} </td> -->
+                <td>{{ user.is_staff }}</td>
+            </tr>
+            <tr>
+                <td>account</td>
+                <!-- <td>{% verbatim %} {{ user.is_active }} {% endverbatim %} </td> -->
+                <td>{{ user.is_active }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- /.container -->
+{% endblock %}

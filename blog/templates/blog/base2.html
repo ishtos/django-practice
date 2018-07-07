@@ -13,35 +13,39 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+    <title>Django blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-primary">
-        <div class="container">
-            <div class="nav navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'post_list' %}">トップ</a>
-
-                {% if user.is_authenticated %}
-                <div class="pull-sm-right">
-                    <a class="nav-item nav-link" href="{% url 'mypage' %}">
-                        ようこそ、{{ user.username }}！マイページへ
-                    </a>
-                    <a class="nav-item nav-link" href="{% url 'logout' %}">ログアウト</a>
-                </div>
-
-                {% else %}
-                <a class="nav-item nav-link pull-sm-right" href="{% url 'login' %}">
-                    ようこそ、ゲスト！ログインはこちら
-                </a>
-
-                {% endif %}
-            </div>
-            <!-- /.nav -->
-        </div>
-        <!-- /.container -->
-    </nav>
+    <div class="page-header">
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="top-menu">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+        <a href="{% url 'post_draft_list' %}" class="top-menu">
+            <span class="glyphicon glyphicon-edit"></span>
+        </a>
+        <a href="{% url 'mypage' %}" class="top-menu">
+            <span class="glyphicon glyphicon-user"></span>
+        </a>
+        <a href="{% url 'logout' %}" class="top-menu">
+            <span class="glyphicon glyphicon-off"></span>
+        </a>
+        <p class="top-menu">Hello {{ user.username }}</p>
+        {% else %}
+        <a href="{% url 'login' %}" class="top-menu">
+            <span class="glyphicon glyphicon-lock"></span>
+        </a>
+        {% endif %}
+        <h1>
+            <a href="/">Django Blog</a>
+        </h1>
+    </div>
 
     {% block content %} {% endblock %}
 
