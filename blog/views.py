@@ -3,9 +3,16 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+from django.views import generic
 
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from .forms import RegisterForm, LoginForm
+
 
 @login_required
 def post_list(request):
@@ -90,3 +97,28 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+
+class MyPageView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "blog/info.html"
+
+
+class CreateUserView(generic.CreateView):
+    template_name = 'blog/create_user_view.html'
+    form_class = RegisterForm
+    success_url = reverse_lazy('blog:index')
+
+
+def login(request):
+    context = {
+        'template_name': 'blog/login.html',
+        'authentication_form': LoginForm
+    }
+    return views.login(request, **context)
+
+
+def logout(request):
+    context = {
+        'template_name': 'blog/post_list.html',
+    }
+    return views.logout(request, **context)
