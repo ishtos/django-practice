@@ -16,25 +16,23 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-xs-12">
-                        <div class="form-group">
-                            <!-- <label for="Username">Username</label> -->
-                            <input type="username" placeholder="username" class="form-control" id={{ form.username }}                     
-                        </div>
-                        <div class="form-group">
-                            <!-- <label for="Password">Password</label> -->
-                            <input type="password" placeholder="password" class="form-control" id={{ form.password }}
-                        </div>
-                        {% csrf_token %}
-                        <div class="col-xs-12 col-sm-6">
-                        <button type="submit" class="btn btn-lg btn-block btn-outline-primary">
-                            ログイン
-                        </button>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <a class="btn btn-lg btn-block btn-outline-primary" href="{% url 'create' %}">
-                                会員登録
-                            </a>
-                        </div>
+                            <div class="form-group">
+                                <input type="username" placeholder="username" class="form-control" id={{ form.username }}                  
+                            </div>
+                            <div class="form-group">
+                                <input type="password" placeholder="password" class="form-control" id={{ form.password }}
+                            </div>
+                            {% csrf_token %}
+                            <div class="col-xs-12 col-sm-6">
+                                <button type="submit" class="btn btn-lg btn-block btn-outline-primary">
+                                    ログイン
+                                </button>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <a class="btn btn-lg btn-block btn-outline-primary" href="{% url 'create' %}">
+                                    会員登録
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
