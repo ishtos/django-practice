@@ -1,4 +1,6 @@
-{% extends "blog/base.html" %} {% block content %}
+{% extends "blog/base.html" %}
+{% block content %}
+
 <div class="container">
     <div class="center">
         <h1>ユーザ情報</h1>
@@ -14,29 +16,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr class="table-info">
                 <td>username</td>
-                <!-- <td>{% verbatim %} {{ user.username }} {% endverbatim %} </td> -->
                 <td>{{ user.username }}</td>
             </tr>
-            <tr>
+            <tr class="table-info">
                 <td>email</td>
-                <!-- <td>{% verbatim %} {{ user.email }} {% endverbatim %} </td> -->
                 <td>{{ user.email }}</td>
             </tr>
-            <tr>
+            <tr class="table-active">
                 <td>admin</td>
-                <!-- <td>{% verbatim %} {{ user.is_staff }} {% endverbatim %} </td> -->
                 <td>{{ user.is_staff }}</td>
             </tr>
-            <tr>
+            <tr class="table-active">
                 <td>account</td>
-                <!-- <td>{% verbatim %} {{ user.is_active }} {% endverbatim %} </td> -->
                 <td>{{ user.is_active }}</td>
             </tr>
         </tbody>
     </table>
 
 </div>
-<!-- /.container -->
+
 {% endblock %}
