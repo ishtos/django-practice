@@ -37,7 +37,12 @@
                             </div>
                         </div>
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-lg btn-block btn-outline-primary">会員登録</button>
+                        <button type="submit" class="btn btn-lg btn-block btn-outline-primary">
+                            会員登録
+                        </button>
+                        <a class="btn btn-lg btn-block btn-outline-primary" href="{% url 'login' %}">
+                            ログイン
+                        </a>
                     </div>
                 </div>
             </div>

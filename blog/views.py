@@ -106,7 +106,7 @@ class MyPageView(LoginRequiredMixin, generic.TemplateView):
 class CreateUserView(generic.CreateView):
     template_name = 'registration/create.html'
     form_class = RegisterForm
-    success_url = reverse_lazy('blog:post_list')
+    success_url = reverse_lazy('post_list')
 
 
 # def login(request):
