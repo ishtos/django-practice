@@ -1,1 +1,3 @@
-## Web App written by python with Django
+# Implementation django girls tutorial
+
+(django girls tutorial)[https://tutorial.djangogirls.org/en/]
