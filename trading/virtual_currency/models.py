@@ -14,7 +14,7 @@ class CurrencyHistory(models.Model):
 
 class Currency(models.Model):
     currency_history = models.ForeignKey(CurrencyHistory, on_delete=models.PROTECT)
-    symbol = models.CharField(max_length=10, primary_key=True)
+    symbol = models.CharField(max_length=10)
     price_change_percent = models.FloatField(default=.0)
     weighted_avg_price = models.FloatField(default=.0)
     volume = models.FloatField(default=.0)

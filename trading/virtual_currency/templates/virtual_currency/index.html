@@ -153,8 +153,8 @@
 								{% for  uc in up_currency %}
 								<ul><b>{{ uc.symbol }}</b>
 									<ul>
-										<li>priceChangePercent: {{ uc.priceChangePercent }}</li>
-										<li>weightedAvgPrice: {{ uc.weightedAvgPrice }}</li>
+										<li>priceChangePercent: {{ uc.price_change_percent }}</li>
+										<li>weightedAvgPrice: {{ uc.weighted_avg_price }}</li>
 										<li>volume: {{ uc.volume }}</li>
 										<li>count: {{ uc.count }}</li>
 									</ul>
@@ -173,8 +173,8 @@
 								{% for dc in down_currency %}
 								<ul><b>{{ dc.symbol }}</b>
 									<ul>
-										<li>priceChangePercent: {{ dc.priceChangePercent }}</li>
-										<li>weightedAvgPrice: {{ dc.weightedAvgPrice }}</li>
+										<li>priceChangePercent: {{ dc.price_change_percent }}</li>
+										<li>weightedAvgPrice: {{ dc.weighted_avg_price }}</li>
 										<li>volume: {{ dc.volume }}</li>
 										<li>count: {{ dc.count }}</li>
 									</ul>
