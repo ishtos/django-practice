@@ -12,6 +12,15 @@ class CurrencyHistory(models.Model):
         return self.symbol
 
 
+class DeleteCurrencyManager(models.Manager):
+      use_for_related_fields = True
+      
+      def saved_within_a_week(self, **kwargs):
+          now = timezone.now()
+          a_week_ago = now - datetime.timedelta(days=7)
+          return self.filter(saved_date__gte=a_week_ago, saved_date__lte=now)
+
+
 class Currency(models.Model):
     currency_history = models.ForeignKey(CurrencyHistory, on_delete=models.PROTECT)
     symbol = models.CharField(max_length=10)
@@ -24,10 +33,13 @@ class Currency(models.Model):
     def __str__(self):
         return self.symbol
 
-    def saved_within_a_week(self):
-        now = timezone.now()
-        return now - datetime.timedelta(days=7, seconds=1) <= self.saved_date <= now
+    # def saved_within_a_week(self):
+    #     now = timezone.now()
+    #     return now - datetime.timedelta(days=7, seconds=1) <= self.saved_date <= now
     
-    saved_within_a_week.admin_order_field = 'saved_date'
-    saved_within_a_week.boolean = True
-    saved_within_a_week.short_description = 'Save within a week?'
+    # saved_within_a_week.admin_order_field = 'saved_date'
+    # saved_within_a_week.boolean = True
+    # saved_within_a_week.short_description = 'Save within a week?'
+
+    objects = DeleteCurrencyManager()
+

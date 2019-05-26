@@ -35,6 +35,14 @@ class Command(BaseCommand):
     help = 'Delete the specified currency'
 
     def handle(self, *args, **options):
-        # TODO: implementation
+        Currency.objects.saved_within_a_week().delete()
 
         self.stdout.write(self.style.SUCCESS('Successfully delete the specified currency'))
+
+
+# =============================================================================
+# Helper
+# =============================================================================
+def saved_within_a_week(self):
+    now = timezone.now()
+    return now - datetime.timedelta(days=7, seconds=1) <= self.saved_date <= now
